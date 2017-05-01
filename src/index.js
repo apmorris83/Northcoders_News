@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
@@ -15,9 +15,10 @@ const store = createStore(reducer, applyMiddleware(thunk, createLogger()));
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
             <Route path='/' component={App}>
                 <IndexRoute component={HomePage}/>
+                <Route path='/:topic' component={HomePage} />
             </Route>
         </Router>
     </Provider>, document.getElementById('app'));
