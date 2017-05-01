@@ -9,6 +9,7 @@ function ArticleList (props) {
             return <ArticleCard 
                 key={i}
                 {...article}
+                voteArticle={props.voteArticle.bind(null, article._id)}
             />;
         })}
         </div>

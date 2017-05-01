@@ -23,7 +23,15 @@ export function articlesReducer (prevState = initialState, action) {
         loading: false,
         error: action.error
       });
-
+    case types.VOTE_ARTICLE_SUCCESS:
+        const articleId = action.data._id;
+          return Object.assign({}, prevState, {
+            byId: Object.assign({}, prevState.byId, {
+              [articleId]: Object.assign({}, prevState.byId[articleId], {
+                  votes: action.data.votes
+              })
+          })
+      });
     default:
       return prevState;
   }

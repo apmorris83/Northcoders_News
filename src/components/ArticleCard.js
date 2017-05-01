@@ -1,4 +1,5 @@
 import React from 'react';
+import VoteButtons from './VoteButtons';
 
 function ArticleCard(props) {
     return (
@@ -11,9 +12,7 @@ function ArticleCard(props) {
                 {' | '}
                 <small>{props.comments} comments</small>
             </span>
-            <button className="btn btn-success"><i className="glyphicon glyphicon-chevron-up"></i></button>
-                <span><b> {props.votes} </b></span>
-            <button className="btn btn-danger"><i className="glyphicon glyphicon-chevron-down"></i></button>
+            <VoteButtons votes={props.votes} handleClick={props.voteArticle} />
         </div>
     );
 }

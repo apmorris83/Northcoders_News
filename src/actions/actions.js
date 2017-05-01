@@ -41,3 +41,38 @@ export function fetchArticlesError (err) {
     err: err
   };
 }
+
+export function voteArticle (id, vote) {
+  return (dispatch) => {
+    dispatch(voteArticleRequest());
+    axios
+      .put(`${ROOT}/articles/${id}?vote=${vote}`)
+      .then(res => {
+        dispatch(voteArticleSuccess(res.data));
+      })
+      .catch(error => {
+         dispatch(voteArticleError(error.message));
+      });
+  };
+}
+
+export function voteArticleRequest () {
+  return {
+    type: types.VOTE_ARTICLE_REQUEST,
+    
+  };
+}
+
+export function voteArticleSuccess (data) {
+  return {
+    type: types.VOTE_ARTICLE_SUCCESS,
+    data
+  };
+}
+
+export function voteArticleError (error) {
+  return {
+    type: types.VOTE_ARTICLE_ERROR,
+    error
+  };
+}
