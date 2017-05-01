@@ -10,7 +10,7 @@ export default class App extends Component {
                 <NavBar />
                 <br/>
                 <br/>
-                <h1>hello</h1>
+                <br/>
                 {this.props.children}
             </div>
         ); 
