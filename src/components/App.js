@@ -11,6 +11,7 @@ export default class App extends Component {
                 <br/>
                 <br/>
                 <h1>hello</h1>
+                {this.props.children}
             </div>
         ); 
     }
