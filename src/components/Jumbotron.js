@@ -4,11 +4,11 @@ import { Link } from 'react-router';
 import '../css/JumboTron.css';
 
 export default class Jumbotron extends Component {
-    render(props) {
+    render() {
         return (
-            <div className="jumbotron">
+            <div className="jumbotron extra-jumbotron vertical-center">
                 <div className="container">
-                    <h3>{capitaliseHero(this.props.topic)} articles</h3>
+                    <h2>{capitaliseHero(this.props.topic)} articles</h2>
                 </div>
             </div>
         );

@@ -1,3 +1,19 @@
-.jumbotron {
-    background-color: #c31632; 
+.extra-jumbotron {
+    margin-bottom: 20px;
+    background-image: url('/images/football.png');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.vertical-center {
+  min-height: 40%;
+  min-height: 40vh;
+
+  display: flex;
+  align-items: center;
+}
+
+h2 {
+    color: #fff;
 }
