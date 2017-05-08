@@ -5,13 +5,42 @@ import '../css/JumboTron.css';
 
 export default class Jumbotron extends Component {
     render() {
-        return (
-            <div className="jumbotron extra-jumbotron vertical-center">
-                <div className="container">
-                    <h2>{capitaliseHero(this.props.topic)} articles</h2>
+        if (this.props.topic === undefined) {
+                return (
+                <div className="jumbotron vertical-center football">
+                    <div className="container">
+                        <h2>{capitaliseHero(this.props.topic)} articles</h2>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
+        if (this.props.topic === 'football') {
+                return (
+                <div className="jumbotron vertical-center football">
+                    <div className="container">
+                        <h2>{capitaliseHero(this.props.topic)} articles</h2>
+                    </div>
+                </div>
+            );
+        }
+        if (this.props.topic === 'cooking') {
+                return (
+                <div className="jumbotron vertical-center cooking">
+                    <div className="container">
+                        <h2>{capitaliseHero(this.props.topic)} articles</h2>
+                    </div>
+                </div>
+            );
+        }
+        if (this.props.topic === 'coding') {
+                return (
+                <div className="jumbotron vertical-center coding">
+                    <div className="container">
+                        <h2>{capitaliseHero(this.props.topic)} articles</h2>
+                    </div>
+                </div>
+            );
+        }
     }
 }
 

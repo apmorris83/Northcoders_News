@@ -1,6 +1,22 @@
-.extra-jumbotron {
+.football {
     margin-bottom: 20px;
     background-image: url('/images/football.png');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cooking {
+    margin-bottom: 20px;
+    background-image: url('/images/cooking.png');
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.coding {
+    margin-bottom: 20px;
+    background-image: url('/images/coding.png');
     background-position: 0% 25%;
     background-size: cover;
     background-repeat: no-repeat;
