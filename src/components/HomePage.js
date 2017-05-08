@@ -16,13 +16,18 @@ class Homepage extends Component {
     }
     render() {
         return (
-            <div>
-                <ArticleList 
+
+            <div className="container">
+                
+                    <ArticleList
                     articles={this.props.articles}
                     voteArticle={this.props.voteArticle}
-                />
+                    />
+             
             </div>
-        ); 
+
+            
+        );
     }
 }
 
@@ -34,7 +39,7 @@ function mapStateToProps(state) {
     };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
     return {
         fetchArticles: (topic) => {
             dispatch(actions.fetchArticles(topic));

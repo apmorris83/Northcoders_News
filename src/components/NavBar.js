@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
+import logo from '../../public/images/northcoders-news-logo.svg';
+import '../css/NavBar.css';
+
 export default class NavBar extends Component {
     render() {
         return (
@@ -13,7 +16,8 @@ export default class NavBar extends Component {
                             <span className="icon-bar" />
                             <span className="icon-bar" />
                         </button>
-                        <a className="navbar-brand" href="/">Northcoders News</a>
+                        
+                        <img className="logo-svg" src={logo} alt={'Northcoders News'}></img>
                     </div>
                     <div id="navbar" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
