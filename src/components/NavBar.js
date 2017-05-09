@@ -16,8 +16,7 @@ export default class NavBar extends Component {
                             <span className="icon-bar" />
                             <span className="icon-bar" />
                         </button>
-                        
-                        <img className="logo-svg" src={logo} alt={'Northcoders News'}></img>
+                        <Link to="/"><img className="logo-svg" src={logo} alt={'Northcoders News'}></img></Link>
                     </div>
                     <div id="navbar" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
