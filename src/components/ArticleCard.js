@@ -9,11 +9,11 @@ function ArticleCard(props) {
         <div className="well">
             <div className="media">
                 <div className="media-body">
-                    <Link to={`/${props.belongs_to}/${props._id}`}><h3 className='title is-3'>{props.title}</h3></Link>
+                    <Link to={`/${props.belongs_to}/${props._id}`}><h3 className='title is-3 text-danger'>{props.title}</h3></Link>
                     <span>
                         <strong>{props.created_by}</strong>
                         {' | '}
-                        <Link to={`/${props.belongs_to}`}><small>{props.belongs_to}</small></Link>
+                        <Link to={`/${props.belongs_to}`} className="text-danger"><strong>{props.belongs_to}</strong></Link>
                         {' | '}
                         <small>{props.comments} comments</small>
                     </span>
