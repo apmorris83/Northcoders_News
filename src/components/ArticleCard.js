@@ -2,18 +2,26 @@ import React from 'react';
 import { Link } from 'react-router';
 import VoteButtons from './VoteButtons';
 
+import '../css/ArticleCard.css';
+
 function ArticleCard(props) {
     return (
         <div className="well">
-            <Link to={`/${props.belongs_to}/${props._id}`}><h3 className='title is-3'>{props.title}</h3></Link>
-            <span>
-                <strong>{props.created_by}</strong>
-                {' | '}
-                <small>{props.belongs_to}</small>
-                {' | '}
-                <small>{props.comments} comments</small>
-            </span>
-            <VoteButtons votes={props.votes} handleClick={props.voteArticle} />
+            <div className="media">
+                <div className="media-body">
+                    <Link to={`/${props.belongs_to}/${props._id}`}><h3 className='title is-3'>{props.title}</h3></Link>
+                    <span>
+                        <strong>{props.created_by}</strong>
+                        {' | '}
+                        <Link to={`/${props.belongs_to}`}><small>{props.belongs_to}</small></Link>
+                        {' | '}
+                        <small>{props.comments} comments</small>
+                    </span>
+                </div>
+                <div className="media-right">
+                    <VoteButtons votes={props.votes} handleClick={props.voteArticle} />
+                </div>
+            </div>
         </div>
     );
 }
