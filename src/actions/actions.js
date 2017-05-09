@@ -110,3 +110,43 @@ export function fetchCommentsError (err) {
     err: err
   };
 }
+
+export function fetchUsers (user) {
+  let url = `${ROOT}`;
+  if (user) {
+    url += `/users/${user}`;
+  } else {
+    url += '/users';
+  }
+  return (dispatch) => {
+    dispatch(fetchUsersRequest());
+    axios
+      .get(url)
+      .then(res => {
+        dispatch(fetchUsersSuccess(res.data.users));
+      })
+      .catch(err => {
+         dispatch(fetchUsersError(err));
+      });
+  };
+}
+
+export function fetchUsersRequest () {
+  return {
+    type: types.FETCH_USERS_REQUEST
+  };
+}
+
+export function fetchUsersSuccess (users) {
+  return {
+    type: types.FETCH_USERS_SUCCESS,
+    data: users
+  };
+}
+
+export function fetchUsersError (err) {
+  return {
+    type: types.FETCH_USERS_ERROR,
+    err: err
+  };
+}

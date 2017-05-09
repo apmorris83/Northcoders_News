@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 
 import ArticleComments from './ArticleComments';
 
@@ -18,7 +17,7 @@ class ArticlePage extends Component {
                                 {' | '}
                                 <small>{this.props.article.comments} comments</small>
                             </span>
-                        <h3 className="text-danger">Comments</h3>
+                        <h4 className="text-danger">Comments</h4>
                         <ArticleComments articleId={this.props.params.articleId} comments={this.props.comments}/>
                 </div>
             </div>
