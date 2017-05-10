@@ -14,7 +14,7 @@ function CommentCard (props) {
 
 function getDate (num) {
     var date = moment(num);
-    return date.format('dddd, MMMM Do YYYY, h:mm:ss a');
+    return date.format('dddd, MMMM Do YYYY');
 }
 
 export default CommentCard;
