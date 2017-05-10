@@ -14,7 +14,7 @@ export default class Jumbotron extends Component {
                 </div>
             );
         }
-        else if (this.props.topic === 'football') {
+        if (this.props.topic === 'football') {
                 return (
                 <div className="jumbotron vertical-center football">
                     <div className="container">
@@ -23,7 +23,7 @@ export default class Jumbotron extends Component {
                 </div>
             );
         }
-        else if (this.props.topic === 'cooking') {
+        if (this.props.topic === 'cooking') {
                 return (
                 <div className="jumbotron vertical-center cooking">
                     <div className="container">
@@ -32,7 +32,7 @@ export default class Jumbotron extends Component {
                 </div>
             );
         }
-        else if (this.props.topic === 'coding') {
+        if (this.props.topic === 'coding') {
                 return (
                 <div className="jumbotron vertical-center coding">
                     <div className="container">

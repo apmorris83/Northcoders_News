@@ -48,7 +48,8 @@ export function voteArticle (id, vote) {
     axios
       .put(`${ROOT}/articles/${id}?vote=${vote}`)
       .then(res => {
-        dispatch(voteArticleSuccess(res.data));
+        console.log(res);
+        dispatch(voteArticleSuccess({_id: id, vote}));
       })
       .catch(error => {
          dispatch(voteArticleError(error.message));
@@ -117,7 +118,7 @@ export function fetchUsers () {
   return (dispatch) => {
     dispatch(fetchUsersRequest());
     axios
-      .get(url)
+      .get(`${url}/users`)
       .then(res => {
         dispatch(fetchUsersSuccess(res.data.users));
       })

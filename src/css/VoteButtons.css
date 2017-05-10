@@ -1,3 +1,10 @@
 .votes {
-    text-align: right;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.down-button {
+    margin-top: 0px;
+    margin-bottom: 0px;
 }

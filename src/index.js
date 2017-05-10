@@ -20,9 +20,9 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route path='/' component={App}>
                 <IndexRoute component={HomePage}/>
+                <Route path='/users' component={UsersHome} />
                 <Route path='/:topic' component={HomePage} />
                 <Route path='/:topic/:articleId' component={ArticlePage} />
-                <Route path='/users' component={UsersHome} />
             </Route>
         </Router>
     </Provider>, document.getElementById('app'));
