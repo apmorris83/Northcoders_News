@@ -9,10 +9,11 @@ export default class App extends Component {
     render() {
         return (
             <div className="mainContainer">
-            <Jumbotron topic={this.props.params.topic}/>
+            <Jumbotron 
+            topic={this.props.params.topic}
+            />
             <div>
                 <NavBar />
-               
                 {this.props.children}
             </div>
             </div>

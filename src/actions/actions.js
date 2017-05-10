@@ -111,13 +111,9 @@ export function fetchCommentsError (err) {
   };
 }
 
-export function fetchUsers (user) {
+export function fetchUsers () {
   let url = `${ROOT}`;
-  if (user) {
-    url += `/users/${user}`;
-  } else {
-    url += '/users';
-  }
+
   return (dispatch) => {
     dispatch(fetchUsersRequest());
     axios

@@ -16,7 +16,7 @@ function usersReducer (prevState = initialState, action) {
     case types.FETCH_USERS_SUCCESS:
       return Object.assign({}, prevState, {
         loading: false,
-        comments: action.data
+        users: action.data
       });
     case types.FETCH_USERS_ERROR:
       return Object.assign({}, prevState, {
