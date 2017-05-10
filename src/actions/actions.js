@@ -147,3 +147,42 @@ export function fetchUsersError (err) {
     err: err
   };
 }
+
+export function addComment (id, comment) {
+  return (dispatch) => {
+    dispatch(addCommentRequest());
+    axios
+      .post(`${ROOT}/articles/${id}/comments`, {
+        body: comment,
+        belongs_to: id
+      })
+      .then(res => {
+        console.log(res);
+        dispatch(addCommentSuccess({_id: id, comment}));
+      })
+      .catch(error => {
+         dispatch(addCommentError(error.message));
+      });
+  };
+}
+
+export function addCommentRequest () {
+  return {
+    type: types.ADD_COMMENT_REQUEST,
+    
+  };
+}
+
+export function addCommentSuccess (data) {
+  return {
+    type: types.ADD_COMMENT_SUCCESS,
+    data: data
+  };
+}
+
+export function addCommentError (err) {
+  return {
+    type: types.ADD_COMMENT_ERROR,
+    err: err
+  };
+}

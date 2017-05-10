@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import { ROOT } from '../../config';
 
 import ArticleComments from './ArticleComments';
 
@@ -23,7 +24,7 @@ class ArticlePage extends Component {
 
                             <div className="well">
                                 <input type="text" name="name" />
-                                <button type="button" className="pull-right">add comment</button>
+                                <button onClick={handleAddComment()} type="button" className="pull-right">add comment</button>
                             </div>
                         <ArticleComments articleId={this.props.params.articleId} comments={this.props.comments}/>
                 </div>
@@ -33,9 +34,9 @@ class ArticlePage extends Component {
 }
 
 function handleAddComment () {
-    axios.post('/user', {
-    firstName: 'Fred',
-    lastName: 'Flintstone'
+    axios.post(`${ROOT}/articles/${this.props.params.articleId}/comments`, {
+    body: 'hello this is a test comment',
+    belongs_to: `${this.props.params.articleId}`
   })
   .then(function (response) {
     console.log(response);
