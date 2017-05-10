@@ -13,7 +13,7 @@ function CommentCard (props) {
 }
 
 function getDate (num) {
-    var date = moment(num);
+    let date = moment(num);
     return date.format('dddd, MMMM Do YYYY');
 }
 

@@ -11,6 +11,9 @@ class ArticlePage extends Component {
         this.handleCommentForm = this.handleCommentForm.bind(this);
         this.handleClick = this.handleClick.bind(this);
     }
+    componentDidMount () {
+        this.props.fetchArticles(this.props.params.topic);
+    }
     handleCommentForm (e) {
         this.setState({
             comment: e.target.value
@@ -20,6 +23,13 @@ class ArticlePage extends Component {
         this.props.addComment(this.props.params.articleId, this.state.comment);
     }
     render() {
+        if (this.props.article === undefined) {
+            return (
+                <div>
+                    <p>loading...</p>
+                </div>
+            )
+        }
         return (
             <div className="container">
                 <div className="well">
@@ -55,6 +65,9 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
     return {
+        fetchArticles: (topic) => {
+            dispatch(actions.fetchArticles(topic));
+        },
         addComment: (id, comment) => {
             dispatch(actions.addComment(id, comment));
         }
