@@ -6,7 +6,6 @@ import UserList from './UserList';
 
 class UsersHome extends Component {
     componentDidMount() {
-        console.log('******************************')
         this.props.fetchUsers();
     }
     render() {

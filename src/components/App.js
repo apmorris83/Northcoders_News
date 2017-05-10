@@ -7,6 +7,7 @@ import '../css/App.css';
 
 export default class App extends Component {
     render() {
+        console.log(this.props);
         return (
             <div className="mainContainer">
             <Jumbotron 

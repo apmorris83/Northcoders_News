@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import ArticleComments from './ArticleComments';
 
@@ -17,12 +18,31 @@ class ArticlePage extends Component {
                                 {' | '}
                                 <small>{this.props.article.comments} comments</small>
                             </span>
-                        <h4 className="text-danger">Comments</h4>
+
+                            <h4 className="text-danger">Comments</h4>
+
+                            <div className="well">
+                                <input type="text" name="name" />
+                                <button type="button" className="pull-right">add comment</button>
+                            </div>
                         <ArticleComments articleId={this.props.params.articleId} comments={this.props.comments}/>
                 </div>
             </div>
         );
     }
+}
+
+function handleAddComment () {
+    axios.post('/user', {
+    firstName: 'Fred',
+    lastName: 'Flintstone'
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 }
 
 function mapStateToProps(state, props) {
