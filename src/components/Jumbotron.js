@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import '../css/JumboTron.css';
 
@@ -51,6 +52,10 @@ export default class Jumbotron extends Component {
         }
     }
 }
+
+Jumbotron.propTypes = {
+    topic: PropTypes.string
+};
 
 function capitaliseHero (str) {
   if (str === undefined) {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
+import PropTypes from 'prop-types';
 
 import UserList from './UserList';
 
@@ -32,5 +33,10 @@ function mapDispatchToProps(dispatch) {
         }
     };
 }
+
+UsersHome.propTypes = {
+    fetchUsers: PropTypes.func.isRequired,
+    users: PropTypes.array.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersHome);

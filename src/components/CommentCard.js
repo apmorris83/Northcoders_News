@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 import VoteButtons from './VoteButtons';
 
@@ -27,5 +28,14 @@ function getDate (num) {
     let date = moment(num);
     return date.format('dddd, MMMM Do YYYY');
 }
+
+CommentCard.propTypes = {
+    body: PropTypes.string.isRequired,
+    created_by: PropTypes.string.isRequired,
+    created_at: PropTypes.number.isRequired,
+    votes: PropTypes.number.isRequired,
+    voteComment: PropTypes.func.isRequired,
+    _id: PropTypes.string.isRequired,
+};
 
 export default CommentCard;

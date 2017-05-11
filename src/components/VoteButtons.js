@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import '../css/VoteButtons.css';
 
@@ -13,6 +14,6 @@ export default function VoteButtons(props) {
 }
 
 VoteButtons.propTypes = {
-    votes: React.PropTypes.number.isRequired,
-    handleClick: React.PropTypes.func.isRequired
+    handleClick: PropTypes.func.isRequired,
+    votes: PropTypes.number.isRequired
 };

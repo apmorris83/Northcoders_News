@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
+import PropTypes from 'prop-types';
 
 import ArticleComments from './ArticleComments';
 import '../css/ArticlePage.css';
@@ -75,5 +76,13 @@ function mapDispatchToProps(dispatch) {
         }
     };
 }
+
+ArticlePage.propTypes = {
+    fetchArticles: PropTypes.func.isRequired,
+    params: PropTypes.object.isRequired,
+    addComment: PropTypes.func.isRequired,
+    article: PropTypes.object,
+    comments: PropTypes.array
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticlePage);

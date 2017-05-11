@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import UserCard from './UserCard';
 
@@ -14,5 +15,9 @@ function UserList (props) {
         </div>
     );
 }
+
+UserList.propTypes = {
+    users: PropTypes.array.isRequired
+};
 
 export default UserList;

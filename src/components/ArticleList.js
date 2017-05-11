@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import ArticleCard from './ArticleCard';
 
@@ -15,5 +16,10 @@ function ArticleList (props) {
         </div>
     );
 }
+
+ArticleList.propTypes = {
+    articles: PropTypes.array.isRequired,
+    voteArticle: PropTypes.func.isRequired
+};
 
 export default ArticleList;

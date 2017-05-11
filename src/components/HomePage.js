@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getTopArticles } from '../reducer/articles.reducer';
 import * as actions from '../actions/actions';
+import PropTypes from 'prop-types';
 
 import ArticleList from './ArticleList';
 
@@ -16,17 +17,12 @@ class Homepage extends Component {
     }
     render() {
         return (
-
-            <div className="container">
-                
+            <div className="container">     
                     <ArticleList
                     articles={this.props.articles}
                     voteArticle={this.props.voteArticle}
                     />
-             
             </div>
-
-            
         );
     }
 }
@@ -49,5 +45,12 @@ function mapDispatchToProps(dispatch) {
         }
     };
 }
+
+Homepage.propTypes = {
+    fetchArticles: PropTypes.func.isRequired,
+    params: PropTypes.object.isRequired,
+    articles: PropTypes.array.isRequired,
+    voteArticle: PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Homepage);

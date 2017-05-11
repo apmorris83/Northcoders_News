@@ -192,7 +192,7 @@ export function voteComment (id, vote) {
     axios
       .put(`${ROOT}/comments/${id}?vote=${vote}`)
       .then(res => {
-        console.log('***********************',res);
+        console.log(res);
         dispatch(voteCommentSuccess({_id: id, vote}));
       })
       .catch(error => {

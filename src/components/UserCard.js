@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import '../css/UserCard.css';
 
@@ -19,9 +20,9 @@ function UserCard (props) {
 }
 
 UserCard.propTypes = {
-    name: React.PropTypes.string.isRequired,
-    username: React.PropTypes.string.isRequired,
-    avatar_url: React.PropTypes.string.isRequired
+    name: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    avatar_url: PropTypes.string.isRequired
 };
 
 export default UserCard;
