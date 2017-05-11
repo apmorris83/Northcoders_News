@@ -186,3 +186,39 @@ export function addCommentError (err) {
     err: err
   };
 }
+
+export function voteComment (id, vote) {
+  return (dispatch) => {
+    dispatch(voteCommentRequest());
+    axios
+      .put(`${ROOT}/comments/${id}?vote=${vote}`)
+      .then(res => {
+        console.log(res);
+        dispatch(voteCommentSuccess({_id: id, vote}));
+      })
+      .catch(error => {
+         dispatch(voteCommentError(error.message));
+      });
+  };
+}
+
+export function voteCommentRequest () {
+  return {
+    type: types.VOTE_COMMENT_REQUEST,
+    
+  };
+}
+
+export function voteCommentSuccess (data) {
+  return {
+    type: types.VOTE_COMMENT_SUCCESS,
+    data: data
+  };
+}
+
+export function voteCommentError (err) {
+  return {
+    type: types.VOTE_COMMENT_ERROR,
+    err: err
+  };
+}

@@ -15,7 +15,7 @@ function CommentCard (props) {
                     <small>{getDate(props.created_at)}</small>
                 </div>
                 <div className="media-right">
-                    <VoteButtons votes={props.votes} handleClick={props.voteArticle} />
+                    <VoteButtons votes={props.votes} handleClick={props.voteComment} />
                 </div>
             </div>
         </div>

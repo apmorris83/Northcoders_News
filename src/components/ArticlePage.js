@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
 
 import ArticleComments from './ArticleComments';
+import '../css/ArticlePage.css';
 
 class ArticlePage extends Component {
     constructor(props) {
@@ -21,6 +22,9 @@ class ArticlePage extends Component {
     }
     handleClick () {
         this.props.addComment(this.props.params.articleId, this.state.comment);
+        this.setState({
+            comment: ''
+        });
     }
     render() {
         if (this.props.article === undefined) {
@@ -28,7 +32,7 @@ class ArticlePage extends Component {
                 <div>
                     <p>loading...</p>
                 </div>
-            )
+            );
         }
         return (
             <div className="container">
@@ -42,21 +46,19 @@ class ArticlePage extends Component {
                         {' | '}
                         <small>{this.props.article.comments} comments</small>
                     </span>
-
-                    <h4 className="text-danger">Comments</h4>
-
-                    <div className="well">
-                        <input onChange={this.handleCommentForm} type="text" name="name" />
-                        
-                        <a onClick={this.handleClick} className="btn btn-danger pull-right" role="button">Add comment</a>
-                    </div>
+                    <h4 className="text-danger comments-header">Comments</h4>
+                            <div className="input-group add-comment">
+                                <input onChange={this.handleCommentForm} type="text" className="form-control" placeholder="Add your comment..." />
+                                <span className="input-group-btn">
+                                    <button onClick={this.handleClick} className="btn btn-danger" type="button">Add comment</button>
+                                </span>
+                            </div>
                     <ArticleComments articleId={this.props.params.articleId} comments={this.props.comments}/>
                 </div>
             </div>
         );
     }
 }
-
 
 function mapStateToProps(state, props) {
     return {

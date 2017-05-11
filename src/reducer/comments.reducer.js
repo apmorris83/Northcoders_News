@@ -23,6 +23,16 @@ function commentsReducer (prevState = initialState, action) {
         loading: false,
         error: action.error
       });
+      case types.VOTE_COMMENT_SUCCESS:
+        const commentId = action.data._id;
+        const vote = action.data.vote === 'up' ? 1 : -1;
+          return Object.assign({}, prevState, {
+            byId: Object.assign({}, prevState.byId, {
+              [commentId]: Object.assign({}, prevState.byId[commentId], {
+                  votes: prevState.votes + vote
+              })
+          })
+      });
     default:
       return prevState;
   }
