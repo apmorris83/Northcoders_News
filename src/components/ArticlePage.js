@@ -24,7 +24,6 @@ class ArticlePage extends Component {
     handleClick () {
         this.props.addComment(this.props.params.articleId, this.state.comment);
         setTimeout(() => { window.location.reload(); }, 1000);
-        
     }
     render() {
         if (this.props.article === undefined) {

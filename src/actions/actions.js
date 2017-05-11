@@ -45,6 +45,7 @@ export function fetchArticlesError (err) {
 export function voteArticle (id, vote) {
   return (dispatch) => {
     dispatch(voteArticleRequest());
+    console.log(id);
     axios
       .put(`${ROOT}/articles/${id}?vote=${vote}`)
       .then(res => {
@@ -59,8 +60,7 @@ export function voteArticle (id, vote) {
 
 export function voteArticleRequest () {
   return {
-    type: types.VOTE_ARTICLE_REQUEST,
-    
+    type: types.VOTE_ARTICLE_REQUEST,   
   };
 }
 
@@ -168,8 +168,7 @@ export function addComment (id, comment) {
 
 export function addCommentRequest () {
   return {
-    type: types.ADD_COMMENT_REQUEST,
-    
+    type: types.ADD_COMMENT_REQUEST,    
   };
 }
 
@@ -193,7 +192,7 @@ export function voteComment (id, vote) {
     axios
       .put(`${ROOT}/comments/${id}?vote=${vote}`)
       .then(res => {
-        console.log(res);
+        console.log('***********************',res);
         dispatch(voteCommentSuccess({_id: id, vote}));
       })
       .catch(error => {
@@ -204,8 +203,7 @@ export function voteComment (id, vote) {
 
 export function voteCommentRequest () {
   return {
-    type: types.VOTE_COMMENT_REQUEST,
-    
+    type: types.VOTE_COMMENT_REQUEST,    
   };
 }
 
@@ -219,6 +217,41 @@ export function voteCommentSuccess (data) {
 export function voteCommentError (err) {
   return {
     type: types.VOTE_COMMENT_ERROR,
+    err: err
+  };
+}
+
+export function deleteComment (id) {
+  return (dispatch) => {
+    dispatch(deleteCommentRequest());
+    axios
+      .put(`${ROOT}/comments/${id}`)
+      .then(res => {
+        console.log(res);
+        dispatch(deleteCommentSuccess({_id: id}));
+      })
+      .catch(error => {
+         dispatch(deleteCommentError(error.message));
+      });
+  };
+}
+
+export function deleteCommentRequest () {
+  return {
+    type: types.DELETE_COMMENT_REQUEST,
+  };
+}
+
+export function deleteCommentSuccess (data) {
+  return {
+    type: types.DELETE_COMMENT_SUCCESS,
+    data: data
+  };
+}
+
+export function deleteCommentError (err) {
+  return {
+    type: types.DELETE_COMMENT_ERROR,
     err: err
   };
 }

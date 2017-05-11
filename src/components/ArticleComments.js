@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/actions';
+import PropTypes from 'prop-types';
 
 import CommentCard from './CommentCard';
 
 class ArticleComments extends Component {
     componentWillMount() {
-        this.props.fetchComments(this.props.articleId)
+        this.props.fetchComments(this.props.articleId);
     }
     render() {
         return (
@@ -16,6 +17,7 @@ class ArticleComments extends Component {
                         key={i}
                         {...comment}
                         voteComment={this.props.voteComment}
+                        deleteComment={this.props.deleteComment}
                     />;
                 })}
             </div>
@@ -36,8 +38,19 @@ function mapDispatchToProps (dispatch) {
         },
         voteComment: (id, vote) => {
             dispatch(actions.voteComment(id, vote));
+        },
+        deleteComment: (id) => {
+            dispatch(actions.deleteComment(id));
         }
     };
 }
+
+ArticleComments.propTypes = {
+    fetchComments: PropTypes.func.isRequired,
+    articleId: PropTypes.string.isRequired,
+    comments: PropTypes.array.isRequired,
+    voteComment: PropTypes.func.isRequired,
+    deleteComment: PropTypes.func.isRequired,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ArticleComments);

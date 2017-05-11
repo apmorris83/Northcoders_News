@@ -26,13 +26,15 @@ function commentsReducer (prevState = initialState, action) {
       case types.VOTE_COMMENT_SUCCESS:
         const commentId = action.data._id;
         const vote = action.data.vote === 'up' ? 1 : -1;
-          return Object.assign({}, prevState, {
-            byId: Object.assign({}, prevState.byId, {
-              [commentId]: Object.assign({}, prevState.byId[commentId], {
-                  votes: prevState.votes + vote
-              })
-          })
-      });
+
+        const newState = Object.assign({}, prevState);
+        newState.comments = newState.comments.map((comment) => {
+          if (comment._id === commentId) {
+            return Object.assign({}, comment, {votes: comment.votes + vote});
+          }
+          return comment;
+        });
+        return newState;
     default:
       return prevState;
   }

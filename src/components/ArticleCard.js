@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import VoteButtons from './VoteButtons';
+import PropTypes from 'prop-types';
 
 import '../css/ArticleCard.css';
 
@@ -27,13 +28,13 @@ function ArticleCard(props) {
 }
 
 ArticleCard.propTypes = {
-    belongs_to: React.PropTypes.string.isRequired,
-    _id: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string.isRequired,
-    created_by: React.PropTypes.string.isRequired,
-    comments: React.PropTypes.number.isRequired,
-    votes: React.PropTypes.number.isRequired,
-    voteArticle: React.PropTypes.func.isRequired
+    belongs_to: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    created_by: PropTypes.string.isRequired,
+    comments: PropTypes.number.isRequired,
+    votes: PropTypes.number.isRequired,
+    voteArticle: PropTypes.func.isRequired
 };
 
 export default ArticleCard;
