@@ -4,6 +4,7 @@ import * as actions from '../actions/actions';
 
 import ArticleComments from './ArticleComments';
 import '../css/ArticlePage.css';
+import Loader from './Loader';
 
 class ArticlePage extends Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class ArticlePage extends Component {
         if (this.props.article === undefined) {
             return (
                 <div>
-                    <p>loading...</p>
+                    <Loader />
                 </div>
             );
         }

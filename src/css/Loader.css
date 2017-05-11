@@ -1,0 +1,19 @@
+.Loader-logo {
+    animation: spin infinite 1s linear;
+    height: 50px;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+}
+
+.Loader {
+    background-color: #c31632;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
