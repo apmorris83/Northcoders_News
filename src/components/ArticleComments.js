@@ -15,6 +15,7 @@ class ArticleComments extends Component {
                     return <CommentCard 
                         key={i}
                         {...comment}
+                        voteArticle={this.props.voteArticle}
                     />;
                 })}
             </div>
@@ -32,6 +33,9 @@ function mapDispatchToProps (dispatch) {
     return {
         fetchComments: (id) => {
             dispatch(actions.fetchComments(id));
+        },
+        voteArticle: (id, vote) => {
+            dispatch(actions.voteArticle(id, vote));
         }
     };
 }

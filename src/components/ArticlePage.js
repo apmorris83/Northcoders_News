@@ -33,23 +33,24 @@ class ArticlePage extends Component {
         return (
             <div className="container">
                 <div className="well">
-                            <h3 className="text-danger">{this.props.article.title}</h3>
-                            <p>{this.props.article.body}</p>
-                            <span>
-                                <strong>{this.props.article.created_by}</strong>
-                                {' | '}
-                                <strong className="text-danger">{this.props.article.belongs_to}</strong>
-                                {' | '}
-                                <small>{this.props.article.comments} comments</small>
-                            </span>
+                    <h3 className="text-danger">{this.props.article.title}</h3>
+                    <p>{this.props.article.body}</p>
+                    <span>
+                        <strong>{this.props.article.created_by}</strong>
+                        {' | '}
+                        <strong className="text-danger">{this.props.article.belongs_to}</strong>
+                        {' | '}
+                        <small>{this.props.article.comments} comments</small>
+                    </span>
 
-                            <h4 className="text-danger">Comments</h4>
+                    <h4 className="text-danger">Comments</h4>
 
-                            <div className="well">
-                                <input onChange={this.handleCommentForm} type="text" name="name" />
-                                <button onClick={this.handleClick} type="button" className="pull-right">add comment</button>
-                            </div>
-                        <ArticleComments articleId={this.props.params.articleId} comments={this.props.comments}/>
+                    <div className="well">
+                        <input onChange={this.handleCommentForm} type="text" name="name" />
+                        
+                        <a onClick={this.handleClick} className="btn btn-danger pull-right" role="button">Add comment</a>
+                    </div>
+                    <ArticleComments articleId={this.props.params.articleId} comments={this.props.comments}/>
                 </div>
             </div>
         );

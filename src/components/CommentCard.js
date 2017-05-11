@@ -1,13 +1,23 @@
 import React from 'react';
 import moment from 'moment';
 
+import VoteButtons from './VoteButtons';
+
 function CommentCard (props) {
     return (
+
         <div className="well">
-            <p>{props.body}</p>
-            <strong>{props.created_by}</strong>
-            {' | '}
-            <small>{getDate(props.created_at)}</small>
+            <div className="media">
+                <div className="media-body">
+                    <p>{props.body}</p>
+                    <strong>{props.created_by}</strong>
+                    {' | '}
+                    <small>{getDate(props.created_at)}</small>
+                </div>
+                <div className="media-right">
+                    <VoteButtons votes={props.votes} handleClick={props.voteArticle} />
+                </div>
+            </div>
         </div>
     );
 }
