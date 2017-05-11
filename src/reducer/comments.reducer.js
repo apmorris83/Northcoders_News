@@ -16,7 +16,7 @@ function commentsReducer (prevState = initialState, action) {
     case types.FETCH_COMMENTS_SUCCESS:
       return Object.assign({}, prevState, {
         loading: false,
-        comments: action.data
+        comments: sortComments(action.data)
       });
     case types.FETCH_COMMENTS_ERROR:
       return Object.assign({}, prevState, {
@@ -36,6 +36,12 @@ function commentsReducer (prevState = initialState, action) {
     default:
       return prevState;
   }
+}
+
+export function sortComments (data) {
+  return data.sort((a, b) => {
+    return b.votes - a.votes;
+  });
 }
 
 export default commentsReducer;
