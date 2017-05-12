@@ -14,5 +14,14 @@ describe('articles.reducer', () => {
             const newState = articlesReducer(initialState, action);
             expect(newState).to.not.equal(initialState);
         });
+        it('returns state when not passed an action', () => {
+            const newState = articlesReducer(initialState);
+            expect(newState).to.eql(initialState);
+        });
+        it('sets loading to true', () => {
+            const action = actions.fetchArticlesRequest();
+            const newState = articlesReducer(initialState, action);
+            expect(newState.loading).to.equal(true);
+        });
     });
 });

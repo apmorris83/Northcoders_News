@@ -7,6 +7,7 @@ const initialState = {
 };
 
 export function articlesReducer (prevState = initialState, action) {
+  if (typeof action === 'undefined') return prevState;
   switch (action.type) {
     case types.FETCH_ARTICLES_REQUEST:
       return Object.assign({}, prevState, {
@@ -23,9 +24,9 @@ export function articlesReducer (prevState = initialState, action) {
         loading: false,
         error: action.error
       });
-    case types.VOTE_ARTICLE_SUCCESS:
-        var articleId = action.data._id;
-        var vote = action.data.vote === 'up' ? 1 : -1;
+    case types.VOTE_ARTICLE_SUCCESS: {
+        const articleId = action.data._id;
+        const vote = action.data.vote === 'up' ? 1 : -1;
           return Object.assign({}, prevState, {
             byId: Object.assign({}, prevState.byId, {
               [articleId]: Object.assign({}, prevState.byId[articleId], {
@@ -33,6 +34,7 @@ export function articlesReducer (prevState = initialState, action) {
               })
           })
       });
+    }
     default:
       return prevState;
   }
