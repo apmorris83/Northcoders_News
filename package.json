@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha ./spec --compilers js:babel-core/register",
     "dev": "webpack-dev-server",
-    "lint": "./eslint"
+    "lint": "eslint ./"
   },
   "repository": {
     "type": "git",
