@@ -112,42 +112,6 @@ export function fetchCommentsError (err) {
   };
 }
 
-export function fetchUsers () {
-  let url = `${ROOT}`;
-
-  return (dispatch) => {
-    dispatch(fetchUsersRequest());
-    axios
-      .get(`${url}/users`)
-      .then(res => {
-        dispatch(fetchUsersSuccess(res.data.users));
-      })
-      .catch(err => {
-         dispatch(fetchUsersError(err));
-      });
-  };
-}
-
-export function fetchUsersRequest () {
-  return {
-    type: types.FETCH_USERS_REQUEST
-  };
-}
-
-export function fetchUsersSuccess (users) {
-  return {
-    type: types.FETCH_USERS_SUCCESS,
-    data: users
-  };
-}
-
-export function fetchUsersError (err) {
-  return {
-    type: types.FETCH_USERS_ERROR,
-    err: err
-  };
-}
-
 export function addComment (id, comment) {
   return (dispatch) => {
     dispatch(addCommentRequest());

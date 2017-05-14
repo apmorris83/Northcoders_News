@@ -17,7 +17,6 @@ class ArticleComments extends Component {
                         key={i}
                         {...comment}
                         voteComment={this.props.voteComment}
-                        deleteComment={this.props.deleteComment}
                     />;
                 })}
             </div>

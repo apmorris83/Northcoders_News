@@ -10,8 +10,6 @@ function CommentCard (props) {
             <div className="media">
                 <div className="media-body">
                     <p>{props.body}</p>
-                    <i className="glyphicon glyphicon-trash"></i>
-                    {' | '}
                     <strong>{props.created_by}</strong>
                     {' | '}
                     <small>{getDate(props.created_at)}</small>

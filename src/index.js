@@ -10,7 +10,6 @@ import '../public/bootstrap/css/bootstrap.min.css';
 import App from './components/App';
 import HomePage from './components/HomePage';
 import ArticlePage from './components/ArticlePage';
-import UsersHome from './components/UsersHome';
 import reducer from './reducer/index.reducer';
 
 const store = createStore(reducer, applyMiddleware(thunk, createLogger()));
@@ -20,7 +19,6 @@ ReactDOM.render(
         <Router history={browserHistory}>
             <Route path='/' component={App}>
                 <IndexRoute component={HomePage}/>
-                <Route path='/users' component={UsersHome} />
                 <Route path='/:topic' component={HomePage} />
                 <Route path='/:topic/:articleId' component={ArticlePage} />
             </Route>

@@ -9,7 +9,7 @@ export default class Jumbotron extends Component {
                 return (
                 <div className="jumbotron vertical-center all">
                     <div className="container">
-                        
+                        <h2>All articles</h2>
                     </div>
                 </div>
             );
@@ -37,15 +37,6 @@ export default class Jumbotron extends Component {
                 <div className="jumbotron vertical-center coding">
                     <div className="container">
                         <h2>{capitaliseHero(this.props.topic)} articles</h2>
-                    </div>
-                </div>
-            );
-        }
-        else {
-                return (
-                <div className="jumbotron vertical-center all">
-                    <div className="container">
-                        <h2>Users</h2>
                     </div>
                 </div>
             );
