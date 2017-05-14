@@ -4,7 +4,17 @@ import * as actions from '../src/actions/actions';
 
 describe('articles.reducer', () => {
     const initialState = {
-        byId: {},
+        byId: {
+            1: {
+                belongs_to: 'football',
+                body: 'Lorem ipsum',
+                comments: 3,
+                created_by: 'joe bloggs',
+                title: 'A story about football',
+                votes: 5,
+                _id: '001'
+            }
+        },
         loading: false,
         error: null
     };
@@ -30,10 +40,6 @@ describe('articles.reducer', () => {
         //     const newState = articlesReducer(initialState, action);
         //     expect(newState).to.not.equal(initialState);
         // });
-        it('returns state when not passed an action', () => {
-            const newState = articlesReducer(initialState);
-            expect(newState).to.eql(initialState);
-        });
         // it('sets loading to false', () => {
         //     const action = actions.fetchArticlesSuccess();
         //     const newState = articlesReducer(initialState, action);
@@ -43,6 +49,13 @@ describe('articles.reducer', () => {
     describe('when passed action FETCH_ARTICLES_ERROR', () => {
         it('does not mutate the initial state', () => {
             const action = actions.fetchArticlesError();
+            const newState = articlesReducer(initialState, action);
+            expect(newState).to.not.equal(initialState);
+        });
+    });
+    describe('when passed action VOTE_ARTICLE_SUCCESS', () => {
+        it('does not mutate the initial state', () => {
+            const action = actions.voteArticleSuccess();
             const newState = articlesReducer(initialState, action);
             expect(newState).to.not.equal(initialState);
         });
