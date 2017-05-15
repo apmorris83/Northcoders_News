@@ -9,7 +9,9 @@
   "scripts": {
     "test": "mocha ./spec --compilers js:babel-core/register",
     "dev": "webpack-dev-server",
-    "lint": "eslint ./"
+    "lint": "eslint ./",
+    "postinstall": "webpack -p",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
