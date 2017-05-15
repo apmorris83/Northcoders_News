@@ -47,3 +47,5 @@ export function sortComments(data) {
     return b.votes - a.votes;
   });
 }
+
+export default commentsReducer;

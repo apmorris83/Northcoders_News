@@ -4,7 +4,17 @@ import * as actions from '../src/actions/actions';
 
 describe('comments.reducer', () => {
     const initialState = {
-        comments: [],
+        comments: [
+            {
+                _id: '591599508e6a053693d1e0d0',
+                body: 'Zi ajli idewap roh setfaj los sa gihujfi nebi deraleza wuakoos me. Igadi fovupba dob nok pojfogvew wojazar zofudom mufaforuk woze lif nucka coborejo.',
+                belongs_to: '5915994f8e6a053693d1e0ac',
+                __v: 0,
+                created_by: 'tickle122',
+                votes: 10,
+                created_at: 1494046948000
+            }
+        ],
         loading: false,
         error: null
     };
@@ -26,9 +36,26 @@ describe('comments.reducer', () => {
     });
     describe('when passed action FETCH_COMMENTS_SUCCESS', () => {
         it('does not mutate the initial state', () => {
-            const action = actions.fetchCommentsSuccess();
+            const action = actions.fetchCommentsSuccess(initialState.comments);
             const newState = commentsReducer(initialState, action);
             expect(newState).to.not.equal(initialState);
+        });
+        it('sets loading to false', () => {
+            const action = actions.fetchCommentsSuccess(initialState.comments);
+            const newState = commentsReducer(initialState, action);
+            expect(newState.loading).to.equal(false);
+        });
+    });
+    describe('when passed action FETCH_COMMENTS_ERROR', () => {
+        it('does not mutate the initial state', () => {
+            const action = actions.fetchCommentsError(initialState.comments);
+            const newState = commentsReducer(initialState, action);
+            expect(newState).to.not.equal(initialState);
+        });
+        it('sets loading to false', () => {
+            const action = actions.fetchCommentsError(initialState.comments);
+            const newState = commentsReducer(initialState, action);
+            expect(newState.loading).to.equal(false);
         });
     });
 });

@@ -4,15 +4,28 @@ import * as actions from '../src/actions/actions';
 
 describe('articles.reducer', () => {
     const initialState = {
+        articles: [ 
+            {
+            _id: '5915994f8e6a053693d1e0ac',
+            title: 'What does Jose Mourinho\'s handwriting say about his personality?',
+            body: 'Jose Mourinho was at The O2 on Sunday night to watch Dominic Thiem in action against Novak Djokovic. Thiem took the first set before Djokovic fought back to claim the victory, but Manchester United\'s manager was clearly impressed with the Austrian\'s performance.',
+            created_by: 'tickle122',
+            belongs_to: 'football',
+            __v: 0,
+            votes: 5,
+            comments: 6
+        }
+        ],
         byId: {
-            1: {
-                belongs_to: 'football',
-                body: 'Lorem ipsum',
-                comments: 3,
-                created_by: 'joe bloggs',
-                title: 'A story about football',
-                votes: 5,
-                _id: '001'
+            '5915994f8e6a053693d1e0ac': {
+            _id: '5915994f8e6a053693d1e0ac',
+            title: 'What does Jose Mourinho\'s handwriting say about his personality?',
+            body: 'Jose Mourinho was at The O2 on Sunday night to watch Dominic Thiem in action against Novak Djokovic. Thiem took the first set before Djokovic fought back to claim the victory, but Manchester United\'s manager was clearly impressed with the Austrian\'s performance.',
+            created_by: 'tickle122',
+            belongs_to: 'football',
+            __v: 0,
+            votes: 5,
+            comments: 6
             }
         },
         loading: false,
@@ -35,16 +48,16 @@ describe('articles.reducer', () => {
         });
     });
     describe('when passed action FETCH_ARTICLES_SUCCESS', () => {
-        // it('does not mutate the initial state', () => {
-        //     const action = actions.fetchArticlesSuccess();
-        //     const newState = articlesReducer(initialState, action);
-        //     expect(newState).to.not.equal(initialState);
-        // });
-        // it('sets loading to false', () => {
-        //     const action = actions.fetchArticlesSuccess();
-        //     const newState = articlesReducer(initialState, action);
-        //     expect(newState.loading).to.equal(false);
-        // });
+        it('does not mutate the initial state', () => {
+            const action = actions.fetchArticlesSuccess(initialState.articles);
+            const newState = articlesReducer(initialState, action);
+            expect(newState).to.not.equal(initialState);
+        });
+        it('sets loading to false', () => {
+            const action = actions.fetchArticlesSuccess(initialState.articles);
+            const newState = articlesReducer(initialState, action);
+            expect(newState.loading).to.equal(false);
+        });
     });
     describe('when passed action FETCH_ARTICLES_ERROR', () => {
         it('does not mutate the initial state', () => {
@@ -52,12 +65,22 @@ describe('articles.reducer', () => {
             const newState = articlesReducer(initialState, action);
             expect(newState).to.not.equal(initialState);
         });
+        it('sets loading to false', () => {
+            const action = actions.fetchArticlesSuccess(initialState.articles);
+            const newState = articlesReducer(initialState, action);
+            expect(newState.loading).to.equal(false);
+        });
     });
     describe('when passed action VOTE_ARTICLE_SUCCESS', () => {
-        it('does not mutate the initial state', () => {
-            const action = actions.voteArticleSuccess();
-            const newState = articlesReducer(initialState, action);
-            expect(newState).to.not.equal(initialState);
-        });
+        // it('does not mutate the initial state', () => {
+        //     const action = actions.voteArticleSuccess('5915994f8e6a053693d1e0ac', 'up');
+        //     const newState = articlesReducer(initialState, action);
+        //     expect(newState).to.not.equal(initialState);
+        // });
+        // it('votes an article up', () => {
+        //     const action = actions.voteArticleSuccess('5915994f8e6a053693d1e0ac', 'up');
+        //     const newState = articlesReducer(initialState, action);
+        //     expect(newState.votes).to.equal(6);
+        // });
     });
 });
