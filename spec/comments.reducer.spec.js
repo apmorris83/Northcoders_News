@@ -58,4 +58,16 @@ describe('comments.reducer', () => {
             expect(newState.loading).to.equal(false);
         });
     });
+    describe('when passed action VOTE_COMMENT_SUCCESS', () => {
+        it('does not mutate the initial state', () => {
+            const action = actions.voteCommentSuccess('591599508e6a053693d1e0d0', 'up');
+            const newState = commentsReducer(initialState, action);
+            expect(newState).to.not.equal(initialState);
+        });
+        it('sets loading to false', () => {
+            const action = actions.voteCommentSuccess('591599508e6a053693d1e0d0', 'up');
+            const newState = commentsReducer(initialState, action);
+            expect(newState.loading).to.equal(false);
+        });
+    });
 });
