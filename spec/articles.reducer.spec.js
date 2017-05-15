@@ -72,15 +72,20 @@ describe('articles.reducer', () => {
         });
     });
     describe('when passed action VOTE_ARTICLE_SUCCESS', () => {
-        // it('does not mutate the initial state', () => {
-        //     const action = actions.voteArticleSuccess('5915994f8e6a053693d1e0ac', 'up');
-        //     const newState = articlesReducer(initialState, action);
-        //     expect(newState).to.not.equal(initialState);
-        // });
-        // it('votes an article up', () => {
-        //     const action = actions.voteArticleSuccess('5915994f8e6a053693d1e0ac', 'up');
-        //     const newState = articlesReducer(initialState, action);
-        //     expect(newState.votes).to.equal(6);
-        // });
+        it('does not mutate the initial state', () => {
+            const action = actions.voteArticleSuccess({_id: '5915994f8e6a053693d1e0ac', vote: 'up'});
+            const newState = articlesReducer(initialState, action);
+            expect(newState).to.not.equal(initialState);
+        });
+        it('votes down the specific article', () => {
+            const action = actions.voteArticleSuccess({_id: '5915994f8e6a053693d1e0ac', vote: 'down'});
+            const newState = articlesReducer(initialState, action);
+            expect(newState.byId['5915994f8e6a053693d1e0ac'].votes).to.equal(4);
+        });
+        it('votes up the specific article', () => {
+            const action = actions.voteArticleSuccess({_id: '5915994f8e6a053693d1e0ac', vote: 'up'});
+            const newState = articlesReducer(initialState, action);
+            expect(newState.byId['5915994f8e6a053693d1e0ac'].votes).to.equal(6);
+        });
     });
 });
