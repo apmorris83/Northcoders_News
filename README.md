@@ -1,5 +1,8 @@
 # Northcoders_News
-A full-stack social news aggregation, web content rating, and discussion website. Fully responsive.  
+A full-stack social news aggregation, web content rating, and discussion website. Fully responsive.
+
+![screenshots_for_nc-news](https://cloud.githubusercontent.com/assets/24876693/26062995/86140d84-3984-11e7-9fb3-c3b7c0975582.png)
+
 ## Getting started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 ### Prerequisites
