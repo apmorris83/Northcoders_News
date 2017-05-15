@@ -30,9 +30,7 @@ npm test
 ```
 ## Northcoders_News_API
 To view and run the backend of Northcoders News, please go to the link below and follow the readme instructions
-```
-https://github.com/apmorris83/Northcoders_News_API
-```
+* [Northcoders_News_API](https://github.com/apmorris83/Northcoders_News_API)
 ## Built With
 * [React](https://facebook.github.io/react/) - A JavaScript library for building user interfaces
 * [Redux](http://redux.js.org/) - A predictable state container for JavaScript apps
