@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "src/app.js",
+  "engines": {
+  "node": "4.6.x"
+  },
   "scripts": {
     "test": "mocha ./spec --compilers js:babel-core/register",
     "dev": "webpack-dev-server",
@@ -34,6 +37,7 @@
   },
   "dependencies": {
     "axios": "^0.15.3",
+    "babel-register": "^6.24.1",
     "express": "^4.15.2",
     "moment": "^2.18.1",
     "prop-types": "^15.5.9",
