@@ -6,6 +6,7 @@ These instructions will get you a copy of the project up and running on your loc
 To run this project you will need node v7.4.0 installed on your machine.
 ### Installing
 Please follow this step by step guide to get a development env running.
+
 Clone the repo
 ```
 git clone https://github.com/apmorris83/Northcoders_News.git
@@ -27,8 +28,11 @@ To run the automated tests for React Redux, please run the following command in 
 ```
 npm test
 ```
-## Deployment
-Add additional notes about how to deploy this on a live system
+## Northcoders_News_API
+To view and run the backend of Northcoders News, please go to the link below and follow the readme instructions
+```
+https://github.com/apmorris83/Northcoders_News_API
+```
 ## Built With
 * [React](https://facebook.github.io/react/) - A JavaScript library for building user interfaces
 * [Redux](http://redux.js.org/) - A predictable state container for JavaScript apps
@@ -36,5 +40,9 @@ Add additional notes about how to deploy this on a live system
 * [Webpack](https://webpack.github.io/docs/) - Module bundler
 * [Bootstrap](http://getbootstrap.com/) - JS framework for developing responsive, mobile first projects on the web
 * [MongoDB](https://www.mongodb.com/) - Document database
+* [Express](https://expressjs.com/) - Create a robust API
+* [Mongoose](http://mongoosejs.com/) - Elegant MongoDB object modelling for node.js
+* [mLab](https://mlab.com/home) - MongoDB deployments
+* [Heroku](https://www.heroku.com/) - Platform for building with modern architectures
 ## Author
 * **Andrew Morris** - [apmorris83](https://github.com/apmorris83)
