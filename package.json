@@ -4,13 +4,12 @@
   "description": "",
   "main": "src/app.js",
   "engines": {
-  "node": "7.4.0"
+    "node": "7.4.0"
   },
   "scripts": {
     "test": "mocha ./spec --compilers js:babel-core/register",
     "dev": "webpack-dev-server",
     "lint": "eslint ./",
-    "postinstall": "webpack -p",
     "start": "node server.js"
   },
   "repository": {
@@ -48,7 +47,8 @@
     "react-redux": "^4.4.6",
     "react-router": "^2.8.1",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack": "^2.5.1"
   },
   "bugs": {
     "url": "https://github.com/apmorris83/Northcoders_News/issues"
