@@ -3,6 +3,9 @@ A full-stack social news aggregation, web content rating, and discussion website
 
 ![screenshots_for_nc-news](https://cloud.githubusercontent.com/assets/24876693/26062995/86140d84-3984-11e7-9fb3-c3b7c0975582.png)
 
+## Click the below link to view the site
+https://northcodersnews.herokuapp.com/
+
 ## Getting started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 ### Prerequisites
