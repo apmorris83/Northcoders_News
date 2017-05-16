@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/app.js",
   "engines": {
-  "node": "4.6.x"
+  "node": "7.4.0"
   },
   "scripts": {
     "test": "mocha ./spec --compilers js:babel-core/register",
